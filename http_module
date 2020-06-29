@@ -1,0 +1,8 @@
+const http=require('http');
+let httpServer=http.createServer((req,res)=>{
+    res.end("my server");
+});
+httpServer.listen("3000",(err)=>{
+    if(err) throw err;
+    console.log("server is listening")
+});
