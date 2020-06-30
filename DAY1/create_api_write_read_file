@@ -1,0 +1,40 @@
+//index.js
+
+//const os=require('os');
+//const fs=require('fs');
+//writeFile('date-time.txt','Hi,saru',(err)=>{
+  //  if(err)throw err
+  //  console.log("success")
+//})
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+const app = express();
+const port = 3000;
+//API to create file that contain text a brithtime
+app.get("/", (req, res) => {
+  fs.writeFile("date-time.txt", createdDate("./date-time.txt"), (err) => {
+    if (err) throw err;
+    console.log("success");
+  });
+  function createdDate(file) {
+    const { birthtime } = fs.statSync(file);
+    return birthtime;
+  }
+  res.send( "API is to created");
+});
+//To read files
+app.get("/list", (req, res) => {
+  //fs.readdir(path.join(__dirname, "firstask"), (err, files) => {
+   fs.readdir("C:\Users\DELL\Desktop\task1", (err, files) => {
+    if (err) throw err;
+    res.send(files);
+  });
+  console.log(__dirname);
+});
+app.listen(port, () => {
+  console.log(`server is listening ${port}`);
+});
+
+//output
+//Mon Jun 29 2020 22:11:42 GMT+0530 (India Standard Time)
