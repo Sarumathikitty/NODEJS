@@ -11,17 +11,17 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 const port = 3000;
-//API to create file that contain text a brithtime
+//create file that contain text a createtime
 app.get("/", (req, res) => {
   fs.writeFile("date-time.txt", createdDate("./date-time.txt"), (err) => {
     if (err) throw err;
     console.log("success");
   });
   function createdDate(file) {
-    const { birthtime } = fs.statSync(file);
-    return birthtime;
+    const { createdate} = fs.statSync(file);
+    return createdate;
   }
-  res.send( "API is to created");
+  res.send( "API is created");
 });
 //To read files
 app.get("/list", (req, res) => {
