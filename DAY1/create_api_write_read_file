@@ -18,8 +18,8 @@ app.get("/", (req, res) => {
     console.log("success");
   });
   function createdDate(file) {
-    const { createdate} = fs.statSync(file);
-    return createdate;
+    const { birthtime} = fs.statSync(file);
+    return birthtime;
   }
   res.send( "API is created");
 });
